@@ -1,0 +1,53 @@
+{
+  "adapter-id": "vicinity-wearhealth-adapter",
+  "thing-descriptions": [
+    {
+      "oid": "040A1104-6C30-4F6F-8FF8-B4B0822905CB",
+      "name": "Smirt Shirt(ECG) Sonsor Thing ",
+      "type": "adapters:HeartRate",
+      "properties": [{
+        "pid": "HR",
+        "monitors": "adapters:HeartRate",
+        "read_link": {
+          "href": "/objects/{oid}/properties/{pid}",
+          "output": {
+            "field": [{
+              "name": "value",
+              "schema": {
+                "units": "bpm",
+                "type": "double"
+              }
+            }],
+            "type": "object"
+          }
+        }
+      }],
+      "actions": [],
+      "events": []
+    },
+    {
+      "oid": "040A1104-6C30-4F6F-8FF8-B4B0822905CB",
+      "name": "Smirt Shirt(ECG) Sonsor Thing ",
+      "type": "adapters:Heart Variability",
+      "properties": [{
+        "pid": "HRV",
+        "monitors": "adapters:HRV",
+        "read_link": {
+          "href": "/objects/{oid}/properties/{pid}",
+          "output": {
+            "field": [{
+              "name": "value",
+              "schema": {
+                "units": "ms",
+                "type": "double"
+              }
+            }],
+            "type": "object"
+          }
+        }
+      }],
+      "actions": [],
+      "events": []
+    }
+  ]
+}
