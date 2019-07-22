@@ -3,7 +3,7 @@
   "thing-descriptions": [
     {
       "oid": "040A1104-6C30-4F6F-8FF8-B4B0822905CB",
-      "name": "Smirt Shirt(ECG) Sonsor Thing ",
+      "name": "Smirt Shirt(ECG) Sensor Thing ",
       "type": "adapters:ActivityTracker",
       "properties": [{
         "pid": "HR",
