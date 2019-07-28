@@ -31,12 +31,12 @@ Wearhealth devices that have been registered in Vicinity platform:
 | HR                    | Heart Rate                   | Heart Rate in bpm           |
 
 ## Setup
->Run ```mvn clean package``` in the folder, where the file pom.xml locates in, 
+>Run ```mvn clean package``` in the folder, where the file pom.xml locates in,
 for building the application.
 
-## Perquisites & Configuration
-> You must install mysql before build the application 
-and configure mysql [application.properties]
+## Prerequisites & Configuration
+> Installation of mysql
+> configuring of mysql settings in app [application.properties]
 
 ```
 spring.datasource.url = [mysql port and database]
@@ -55,7 +55,7 @@ installed via -
 mvn clean install
 ```
 ## WereHealth Cloud REST API Application
-> For REST API you can find another application in this directory and this 
+> For REST API you can find another application in this directory and this
 application save your TechUnit data from adapter.  
 ```
 [WH_Cloud]
