@@ -43,20 +43,13 @@ spring.datasource.url = [mysql port and database]
 spring.datasource.username = [mysql username]
 spring.datasource.password = [mysql password]
 ```
-> Configure Cloud REST URL
-```
-Spring.warehealth.restapi = [REST API URL]
-```
-
+## Install
 VICINITY Adapter for Wearhealth is being developed in Java 8 and uses Spring Boot Framework ```2.1.6.RELEASE```, thus it can be
 installed via -
 
 ```
 mvn clean install
 ```
-## WereHealth Cloud REST API Application
-> For REST API you can find another application in this directory and this 
-application save your TechUnit data from adapter.  
-```
-[WH_Cloud]
-```
+## DEPLOY
+> Deploy this application in the local server and use this application as REST API application.
+To store data in the cloud.
