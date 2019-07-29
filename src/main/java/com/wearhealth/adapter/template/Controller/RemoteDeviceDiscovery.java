@@ -43,6 +43,8 @@ public class RemoteDeviceDiscovery {
                         devicesDiscovered.addElement(btDevice);
                         if (!btDevice.getBluetoothAddress().equals("D0:B5:C2:A9:8C:4A")){
                             continue;
+                        }else {
+                          System.out.println("TechUnit is Connected!"); 
                         }
                         try {
                             System.out.println("name " + btDevice.getFriendlyName(false));
