@@ -129,7 +129,7 @@ public class DataTransferController {
      */
     @GetMapping("/getThingsDescription")
     public ResponseEntity<?> getThingsDescription() {
-        log.info("Inside getThingsDescription - TBD by each pilot depending on their VAS/Things...");
+        log.info("Thing Description from  TechUnit ... ");
 
         ClassLoader cl = getClass().getClassLoader();
 
