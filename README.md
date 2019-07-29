@@ -1,6 +1,6 @@
-# VICINITY Wearhealth Adapter
+# VICINITY WearHealth Adapter
 
-## About Wearhealth
+## About WearHealth
 
 WearHealth is an intelligent decision support system that can use any 3rd party wearables
 and IoT devices. 3rd party hardware is integrated into our proprietary cognitive technologies
@@ -16,7 +16,7 @@ VICINITY following its decentralized interoperability concept.
 
 [Wearhealth official website]    https://www.wearhealth.com/
 
-## Adopting Wearhealth IoT resources to VICINITY things
+## Adopting WearHealth IoT resources to VICINITY things
 
  Sensors
 	Smart shirt (ECG)
@@ -45,7 +45,7 @@ spring.datasource.password = [mysql password]
 ```
 > Configure Cloud REST URL
 ```
-Spring.warehealth.restapi = [REST API URL]
+Spring.wearhealth.restapi = [REST API URL]
 ```
 
 VICINITY Adapter for Wearhealth is being developed in Java 8 and uses Spring Boot Framework ```2.1.6.RELEASE```, thus it can be
@@ -54,7 +54,7 @@ installed via -
 ```
 mvn clean install
 ```
-## WereHealth Cloud REST API Application
+## WearHealth Cloud REST API Application
 > For REST API you can find another application in this directory and this
 application save your TechUnit data from adapter.  
 ```

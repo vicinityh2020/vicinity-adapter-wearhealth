@@ -49,7 +49,7 @@ public class DataTransferController {
     /**
      * Get cloud rest api url
      */
-    @Value("${spring.warehealth.restapi}")
+    @Value("${spring.wearhealth.restapi}")
     private String warehealthRestApi;
 
     /**

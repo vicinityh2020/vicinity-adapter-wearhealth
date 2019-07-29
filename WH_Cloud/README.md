@@ -1,4 +1,4 @@
-# Wearhealth Cloud
+# WearHealth Cloud
 
 ## Setup
 >Run ```mvn clean package``` in the folder, where the file pom.xml locates in,
