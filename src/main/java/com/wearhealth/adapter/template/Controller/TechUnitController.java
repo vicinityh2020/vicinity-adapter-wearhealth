@@ -16,7 +16,11 @@ See README file for the full disclaimer information and LICENSE file for full li
 package com.wearhealth.adapter.template.Controller;
 
 import com.wearhealth.adapter.template.Model.TechUnit;
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +36,8 @@ import java.util.List;
 
 @RestController
 public class TechUnitController {
+
+    private static Logger log = LoggerFactory.getLogger(TechUnitController.class);
 
     @Autowired
     private TechUnitService techUnitService;
@@ -65,4 +71,29 @@ public class TechUnitController {
     public void deleteAll() {
         techUnitService.deleteAll();
     }
+
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    @GetMapping(value = "/objects",
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String generateResponseGetThingsDescription() throws Exception {
+        log.info("Thing Description from  TechUnit ... ");
+
+        ClassLoader cl = getClass().getClassLoader();
+
+        String thingsDescription = "";
+        try {
+            thingsDescription = IOUtils
+                    .toString(cl.getResourceAsStream("things-wearhealth.json"));
+        } catch (Exception ex) {
+            log.error("Unable to load Things Description...");
+            ex.printStackTrace();
+        }
+        return thingsDescription;
+    }
+
 }
