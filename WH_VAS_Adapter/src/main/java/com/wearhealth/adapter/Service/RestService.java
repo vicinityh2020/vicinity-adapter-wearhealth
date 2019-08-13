@@ -15,38 +15,34 @@ See README file for the full disclaimer information and LICENSE file for full li
 
 package com.wearhealth.adapter.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.wearhealth.adapter.Model.TechUnit;
-import com.wearhealth.adapter.Repository.TechUnitRepository;
-import javax.transaction.Transactional;
-import java.util.List;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.*;
+import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.client.RestTemplate;
+import org.slf4j.Logger;
 
 /**
- * TechUnitService
+ * RestService
  * @author WearHealth
  */
 
-@Service
-@Transactional
-public class TechUnitService {
 
-    @Autowired
-    private TechUnitRepository techUnitRepository;
+public class RestService {
 
-    /**
-     * Add a new TechUnit
-     * @param techUnit
-     */
-    public void addTechUnit(TechUnit techUnit) {
-        techUnitRepository.save(techUnit);
-    }
+    private static Logger log = LoggerFactory.getLogger(RestService.class);
 
-    /**
-     * Save a list of TechUnit data
-     * @param techUnitList
-     */
-    public void saveAll(List<TechUnit> techUnitList) {
-        techUnitRepository.saveAll(techUnitList);
+    public static String  getPostRestService(String url, String inputs) {
+        String result = "";
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        RestTemplate restTemplate = new RestTemplate();
+        try {
+            HttpEntity<String> entity = new HttpEntity<String>(inputs, headers);
+            restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+        } catch (HttpStatusCodeException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 }

@@ -28,25 +28,9 @@ Wearhealth devices that have been registered in Vicinity platform:
 
 | Resource / PID        | Description / Thing Name     | Adapter Monitored Property  |
 |:--------------------- |:---------------------------- |:--------------------------- |
-| HR                    | Heart Rate                   | Heart Rate in bpm           |
+| heart-rate                    | Heart Rate                   | Heart Rate in bpm           |
 
-## Setup
->Run ```mvn clean package``` in the folder, where the file pom.xml locates in,
-for building the application.
-
-## Prerequisites & Configuration
-> Installation of mysql
-> configuring of mysql settings in app [application.properties]
-
-```
-spring.datasource.url = [mysql port and database]
-spring.datasource.username = [mysql username]
-spring.datasource.password = [mysql password]
-```
-> Configure Cloud REST URL
-```
-Spring.wearhealth.restapi = [REST API URL]
-```
+## Install
 
 VICINITY Adapter for Wearhealth is being developed in Java 8 and uses Spring Boot Framework ```2.1.6.RELEASE```, thus it can be
 installed via -
@@ -54,9 +38,7 @@ installed via -
 ```
 mvn clean install
 ```
-## WearHealth Cloud REST API Application
-> For REST API you can find another application in this directory and this
-application save your TechUnit data from adapter.  
+## WearHealth VAS Application  
 ```
-[WH_Cloud]
+[WH_VAS_Adapter]
 ```

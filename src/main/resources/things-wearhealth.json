@@ -1,12 +1,12 @@
 {
-  "adapter-id": "vicinity-wearhealth-adapter",
+  "adapter-id": "wearhealth-adapter",
   "thing-descriptions": [
     {
-      "oid": "040A1104-6C30-4F6F-8FF8-B4B0822905CB",
-      "name": "Smirt Shirt(ECG) Sensor Thing ",
+      "oid": "wh-ad-2.0",
+      "name": "WearHealth Smirt Shirt Adapter",
       "type": "adapters:ActivityTracker",
       "properties": [{
-        "pid": "HR",
+        "pid": "heart-rate",
         "monitors": "adapters:HeartRate",
         "read_link": {
           "href": "/objects/{oid}/properties/{pid}",

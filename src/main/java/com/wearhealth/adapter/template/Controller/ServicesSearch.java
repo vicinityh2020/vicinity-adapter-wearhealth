@@ -31,7 +31,7 @@ public class ServicesSearch {
     public static final Vector serviceFound = new Vector();
     private static final UUID OBEX_OBJECT_PUSH = OBEX_FILE_TRANSFER;
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static String main(String[] args) throws IOException, InterruptedException {
 
         // First run RemoteDeviceDiscovery and use discovered device
         RemoteDeviceDiscovery.main(null);
@@ -93,6 +93,7 @@ public class ServicesSearch {
             }
         }
 
+        return serviceUUID.toString();
     }
 
 }

@@ -8,11 +8,11 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>warehealth2</groupId>
-    <artifactId>warehealth2</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>warehealth2</name>
-    <description>warehealth 2 application</description>
+    <groupId>warehealth-vas-adapter</groupId>
+    <artifactId>warehealth-vas-adapter</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+    <name>warehealth-vas-adapter</name>
+    <description>warehealth-vas-adapter</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -20,10 +20,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -35,8 +31,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.io</artifactId>
+            <version>2.4</version>
         </dependency>
     </dependencies>
 

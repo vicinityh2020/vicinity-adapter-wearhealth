@@ -15,38 +15,49 @@ See README file for the full disclaimer information and LICENSE file for full li
 
 package com.wearhealth.adapter.Controller;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import com.wearhealth.adapter.Model.TechUnit;
-import com.wearhealth.adapter.Service.TechUnitService;
-import java.util.List;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Random;
 
 /**
- * TechUnitController
+ * TechUnit Controller
+ *
  * @author WearHealth
  */
 
+@RequestMapping("/adapter")
 @RestController
 public class TechUnitController {
 
     private static Logger log = LoggerFactory.getLogger(TechUnitController.class);
 
-    @Autowired
-    private TechUnitService techUnitService;
-
     /**
-     * To save a list of TechUnit Data
-     * @param techUnitList
+     *
      * @return
+     * @throws Exception
      */
-    @PostMapping("/saveTechUnitList")
-    public ResponseEntity<?> saveTechUnitList(@RequestBody List<TechUnit> techUnitList) {
-        techUnitService.saveAll(techUnitList);
-        log.info("Tech Unit List Captured!");
-        return new ResponseEntity<>("Tech Unit List Captured!", HttpStatus.OK);
+    @GetMapping(value = "/objects",
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String generateResponseGetThingsDescription() throws Exception {
+        log.info("Thing Description from  WearHealth VAS ... ");
+
+        ClassLoader cl = getClass().getClassLoader();
+
+        String thingsDescription = "";
+        try {
+            thingsDescription = IOUtils
+                    .toString(cl.getResourceAsStream("things-wearhealth.json"));
+        } catch (Exception ex) {
+            log.error("Unable to load Things Description...");
+            ex.printStackTrace();
+        }
+        return thingsDescription;
     }
+
 }

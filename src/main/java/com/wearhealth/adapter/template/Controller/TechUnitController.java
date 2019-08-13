@@ -15,18 +15,14 @@ See README file for the full disclaimer information and LICENSE file for full li
 
 package com.wearhealth.adapter.template.Controller;
 
-import com.wearhealth.adapter.template.Model.TechUnit;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import com.wearhealth.adapter.template.Service.TechUnitService;
-import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.Random;
 
 /**
  * TechUnit Controller
@@ -34,44 +30,11 @@ import java.util.List;
  * @author WearHealth
  */
 
+@RequestMapping("/adapter")
 @RestController
 public class TechUnitController {
 
     private static Logger log = LoggerFactory.getLogger(TechUnitController.class);
-
-    @Autowired
-    private TechUnitService techUnitService;
-
-    /**
-     * To create a new Tech Unit
-     * @param heartRate
-     * @param deviceId
-     */
-    @PostMapping("/create")
-    public void addTechUnit(@RequestParam String heartRate, @RequestParam String deviceId) {
-        TechUnit techUnit = new TechUnit();
-        techUnit.setHeartRate(heartRate);
-        techUnit.setDeviceId(deviceId);
-        techUnitService.addTechUnit(techUnit);
-    }
-
-    /**
-     * To get all TechUnit
-     * @return
-     */
-    @GetMapping("/all")
-    public List<TechUnit> getAllTechUnit() {
-        return techUnitService.getAll();
-    }
-
-    /**
-     * Delete All TechUnit
-     */
-    @GetMapping("/deleteAll")
-    public void deleteAll() {
-        techUnitService.deleteAll();
-    }
-
 
     /**
      *
@@ -95,5 +58,16 @@ public class TechUnitController {
         }
         return thingsDescription;
     }
+
+    @GetMapping("/objects/{oid}/properties/{pid}")
+    public String getHeartRate(@PathVariable(value = "oid") String oid,
+                                @PathVariable(value = "pid") String pid) throws Exception{
+        // bluetooth connection
+        ObexPutClient.main(null);
+        String heartRate = ServicesSearch.main(null);
+        return heartRate;
+    }
+
+
 
 }
