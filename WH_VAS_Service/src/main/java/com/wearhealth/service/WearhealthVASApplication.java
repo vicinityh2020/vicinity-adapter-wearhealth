@@ -13,7 +13,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 See README file for the full disclaimer information and LICENSE file for full license information in the project root.
 */
 
-package com.wearhealth.adapter;
+package com.wearhealth.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,10 +24,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-public class Wearhealth2Application {
+public class WearhealthVASApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Wearhealth2Application.class, args);
+        SpringApplication.run(WearhealthVASApplication.class, args);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.wearhealth.adapter;
+package com.wearhealth.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

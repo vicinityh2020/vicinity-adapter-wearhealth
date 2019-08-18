@@ -1,0 +1,102 @@
+{
+  "adapter-id": "wearhealth-vas-service",
+  "thing-descriptions": [
+
+    {
+      "oid": "wh-vas-ad-2.0",
+      "name": "WearHealth VAS Service",
+      "type": "core:Service",
+      "properties": [
+        {
+          "pid": "workload_level",
+          "monitors": "adapters:OnOff",
+          "read_link": {
+            "href": "/objects/{oid}/properties/{pid}",
+            "output": {
+              "type": "object",
+              "field": [
+                {
+                  "name": "value",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          },
+          "write_link": {
+            "href": "/objects/{oid}/properties/{pid}",
+            "input": {
+              "type": "object",
+              "field": [
+                {
+                  "name": "heartRate",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "output": {
+              "type": "object",
+              "field": [
+                {
+                  "name": "value",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "pid": "feedback",
+          "monitors": "adapters:OnOff",
+          "read_link": {
+            "href": "/objects/{oid}/properties/{pid}",
+            "output": {
+              "type": "object",
+              "field": [
+                {
+                  "name": "value",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          },
+          "write_link": {
+            "href": "/objects/{oid}/properties/{pid}",
+            "input": {
+              "type": "object",
+              "field": [
+                {
+                  "name": "heartRate",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "output": {
+              "type": "object",
+              "field": [
+                {
+                  "name": "value",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "actions": [],
+      "events": []
+    }
+
+  ]
+}

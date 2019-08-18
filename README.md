@@ -40,5 +40,5 @@ mvn clean install
 ```
 ## WearHealth VAS Application  
 ```
-[WH_VAS_Adapter]
+[WH_VAS_Service]
 ```

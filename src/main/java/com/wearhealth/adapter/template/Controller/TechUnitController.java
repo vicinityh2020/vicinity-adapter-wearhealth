@@ -16,6 +16,7 @@ See README file for the full disclaimer information and LICENSE file for full li
 package com.wearhealth.adapter.template.Controller;
 
 import org.apache.commons.io.IOUtils;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -60,12 +61,14 @@ public class TechUnitController {
     }
 
     @GetMapping("/objects/{oid}/properties/{pid}")
-    public String getHeartRate(@PathVariable(value = "oid") String oid,
+    public ResponseEntity<?> getHeartRate(@PathVariable(value = "oid") String oid,
                                 @PathVariable(value = "pid") String pid) throws Exception{
         // bluetooth connection
         ObexPutClient.main(null);
         String heartRate = ServicesSearch.main(null);
-        return heartRate;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("value", heartRate);
+        return new ResponseEntity<>(jsonObject, HttpStatus.OK);
     }
 
 

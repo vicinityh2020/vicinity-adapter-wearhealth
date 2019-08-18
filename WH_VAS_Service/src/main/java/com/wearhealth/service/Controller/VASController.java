@@ -13,19 +13,22 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 See README file for the full disclaimer information and LICENSE file for full license information in the project root.
 */
 
-package com.wearhealth.adapter.Controller;
+package com.wearhealth.service.Controller;
 
-import com.wearhealth.adapter.Service.RestService;
+import com.wearhealth.service.Service.RestService;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 /**
  * VASController
  * @author WearHealth
  */
 
+@RequestMapping("/adapter")
 @RestController
 public class VASController {
 
@@ -36,10 +39,19 @@ public class VASController {
     @RequestMapping(value = "/objects/{oid}/properties/{pid}", method = RequestMethod.PUT, produces = "application/json", consumes = "application/json")
     @ResponseBody
     public ResponseEntity<?> generateResponseEvent(@PathVariable("pid") String pid, @PathVariable("oid") String oid,
-                                                   @RequestBody String request) throws Exception {
-
+                                                   @RequestBody JSONObject request) throws Exception {
         String result = "";
-        String entity = request.toString();
+        JSONObject obj = new JSONObject(request);
+        Integer entityValue = 0;
+        JSONObject jsonObject = new JSONObject();
+
+       if(obj.containsKey("heartRate")) {
+           entityValue = Integer.parseInt(obj.get("heartRate").toString());
+       } else {
+           jsonObject.put("validationError", "heartRate value is missing");
+           return new ResponseEntity<>(jsonObject, HttpStatus.BAD_REQUEST);
+       }
+
 
         if (pid.equals("workload_level")) {
 
@@ -53,12 +65,13 @@ public class VASController {
 
         }
 
+        jsonObject.put("value", result);
         // Return the response
         if (result.contains("\"error_message\"")) {
-            return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(jsonObject, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        return new ResponseEntity<>(jsonObject, HttpStatus.OK);
     }
 
 

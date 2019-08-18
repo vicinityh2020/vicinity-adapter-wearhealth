@@ -3,7 +3,7 @@
   "thing-descriptions": [
     {
       "oid": "wh-ad-2.0",
-      "name": "WearHealth Smirt Shirt Adapter",
+      "name": "WearHealth Smart Shirt Adapter",
       "type": "adapters:ActivityTracker",
       "properties": [{
         "pid": "heart-rate",

@@ -13,7 +13,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 See README file for the full disclaimer information and LICENSE file for full license information in the project root.
 */
 
-package com.wearhealth.adapter.Service;
+package com.wearhealth.service.Service;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.http.*;

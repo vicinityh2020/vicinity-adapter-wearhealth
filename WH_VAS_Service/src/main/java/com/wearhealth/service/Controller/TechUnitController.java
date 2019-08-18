@@ -13,7 +13,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 See README file for the full disclaimer information and LICENSE file for full license information in the project root.
 */
 
-package com.wearhealth.adapter.Controller;
+package com.wearhealth.service.Controller;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -22,8 +22,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Random;
 
 /**
  * TechUnit Controller
