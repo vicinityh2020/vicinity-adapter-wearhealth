@@ -56,12 +56,12 @@ public class VASController {
         if (pid.equals("workload_level")) {
 
             String wsUrl = BASE_URI + "/workload_level";
-            result = RestService.getPostRestService(wsUrl, entity);
+            result = RestService.getPostRestService(wsUrl, entityValue.toString());
 
         } else if (pid.equals("feedback")) {
 
             String wsUrl = BASE_URI + "/feedback";
-            result = RestService.getPostRestService(wsUrl, entity);
+            result = RestService.getPostRestService(wsUrl, entityValue.toString());
 
         }
 
